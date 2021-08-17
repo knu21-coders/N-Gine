@@ -139,13 +139,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DXFamily.h" />
     <ClInclude Include="Engine(Dx11).h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="MeshManager.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Win32_.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Engine(Dx11).cpp" />
+    <ClCompile Include="DXFamily.cpp" />
+    <ClCompile Include="MeshManager.cpp" />
+    <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Engine(Dx11).rc" />
