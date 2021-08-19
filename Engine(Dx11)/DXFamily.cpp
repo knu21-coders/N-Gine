@@ -9,8 +9,8 @@
 
 */
 
-HRESULT DXFamily::InitDevice(HWND g_hwnd) {
-    this.g_hwnd = g_hwnd;
+HRESULT DXFamily::InitDevice(HWND _hwnd) {
+    this->g_hwnd = _hwnd;
 
 	HRESULT hr = S_OK;
 	
@@ -78,11 +78,12 @@ HRESULT DXFamily::InitDevice(HWND g_hwnd) {
 
 HRESULT DXFamily::CreateSwapChain(){
    
+    HRESULT hr;
      // Obtain DXGI factory from device (since we used nullptr for pAdapter above)
     IDXGIFactory1* dxgiFactory = nullptr;
     {
         IDXGIDevice* dxgiDevice = nullptr;
-        hr = g_pd3dDevice->QueryInterface( __uuidof(IDXGIDevice), reinterpret_cast<void**>(&dxgiDevice) );
+        hr = m_pd3dDevice->QueryInterface( __uuidof(IDXGIDevice), reinterpret_cast<void**>(&dxgiDevice) );
         if (SUCCEEDED(hr))
         {
             IDXGIAdapter* adapter = nullptr;
@@ -104,14 +105,14 @@ HRESULT DXFamily::CreateSwapChain(){
     sd.BufferDesc.Width = _WIDTH;
     sd.BufferDesc.Height = _HEIGHT;
     sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-    sd.bufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
+    sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
     sd.OutputWindow = g_hwnd;
     sd.SampleDesc.Count=1;
     sd.SampleDesc.Quality = 0;
     sd.Windowed=TRUE;
 
 
-    hr = dxgiFactory->CreateSwapChain( g_pd3dDevice, &sd, &g_pSwapChain );
+    hr = dxgiFactory->CreateSwapChain( m_pd3dDevice, &sd, &g_pSwapChain );
 
     dxgiFactory->MakeWindowAssociation(g_hWnd, DXGI_MWA_NO_ALT_ENTER);
     dxgiFactory->Release();
@@ -125,13 +126,14 @@ HRESULT DXFamily::CreateSwapChain(){
 
 HRESULT DXFamily::setupRenderTarget(){
     
+    HRESULT hr;
     // Create a render target view
     ID3D11Texture2D* pBackBuffer = nullptr;
     hr = g_pSwapChain->GetBuffer( 0, __uuidof( ID3D11Texture2D ), reinterpret_cast<void**>( &pBackBuffer ) );
     if( FAILED( hr ) )
         return hr;
 
-    hr = g_pd3dDevice->CreateRenderTargetView( pBackBuffer, nullptr, &g_pRenderTargetView );
+    hr = m_pd3dDevice->CreateRenderTargetView( pBackBuffer, nullptr, &g_pRenderTargetView );
     pBackBuffer->Release();
     if( FAILED( hr ) )
         return hr;

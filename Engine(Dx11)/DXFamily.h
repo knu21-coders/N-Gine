@@ -15,12 +15,12 @@ private:
 
 
 	//Client Specs
-	HWND g_hwnd;
-	UINT _WIDTH;
-	UINT _HEIGHT;
+	HWND g_hwnd = NULL;
+	UINT _WIDTH = 1920;
+	UINT _HEIGHT = 1080;
 
 	//Methods
-	HRESULT DXFamily::setupRenderTarget();
+	HRESULT setupRenderTarget();
 
 public:
 	HRESULT InitDevice(HWND g_hwnd);
