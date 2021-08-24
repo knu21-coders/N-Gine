@@ -1,6 +1,7 @@
 #pragma once
 #include "framework.h"
 
+
 struct Vertex{
 	
 	DirectX::XMFLOAT3 Pos;
@@ -18,10 +19,19 @@ public:
 	}
 	std::vector<DirectX::XMFLOAT3> vertices;
 	std::vector<UINT> indicies;
+};
+struct BundleMeshData : public MeshData{
+public:
+	BundleMeshData() {
+
+	}
+	~BundleMeshData() {
+
+	}
 	UINT IndexOffset = 0;
 	UINT VertexOffset = 0;
+	
 };
-
 class MeshDataManager {
 private:
 	static MeshDataManager* m_pInstance;
@@ -41,15 +51,27 @@ public:
 		if (m_pInstance != nullptr) delete m_pInstance;
 	}
 
-	void AddObject(const char* name, const int& vertCount, const int & indiciesCount, const std::vector<DirectX::XMFLOAT3> &vertices, const std::vector<UINT> &indicies) {
+	void AddObjectToBundle(const char* name, const int& vertCount, const int & indiciesCount, const std::vector<DirectX::XMFLOAT3> &vertices, const std::vector<UINT> &indicies) {
 		
-		MeshData tmp_mesh;
+		BundleMeshData tmp_mesh= objects[name];
 		tmp_mesh.indicies = indicies;
 		tmp_mesh.vertices = vertices;
 		tmp_mesh.IndexOffset = m_CurrentIndexOffset;
 		tmp_mesh.VertexOffset = m_CurrentVertexOffset;
-		objects[name] = tmp_mesh;
+		 = tmp_mesh;
 		
+		//추가한 뒤
+		m_CurrentIndexOffset += indiciesCount;
+		m_CurrentVertexOffset += vertCount;
+
+	}
+	void AddObjectIndependently(const char* name, const int& vertCount, const int& indiciesCount, const std::vector<DirectX::XMFLOAT3>& vertices, const std::vector<UINT>& indicies) {
+
+		MeshData tmp_mesh;
+		tmp_mesh.indicies = indicies;
+		tmp_mesh.vertices = vertices;
+		objects[name] = tmp_mesh;
+
 		//추가한 뒤
 		m_CurrentIndexOffset += indiciesCount;
 		m_CurrentVertexOffset += vertCount;

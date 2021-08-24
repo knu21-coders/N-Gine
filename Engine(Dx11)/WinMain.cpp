@@ -23,17 +23,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     {
         return FALSE;
     }
-    g_pDXFamily = new DXFamily();
-    if (FAILED(g_pDXFamily->InitDevice(g_hWnd)))
+    DXFamily _dxFamily;
+    g_pDXFamily = &_dxFamily; 
+    if (FAILED(g_pDXFamily->Init(g_hWnd)))
     {
-        //CleanupDevice();
-        return FALSE;
-    }
-    
-    //Create SwapChain;
-    if (FAILED(g_pDXFamily->CreateSwapChain()))
-    {
-       
+        g_pDXFamily->End();
         return FALSE;
     }
 
@@ -49,9 +43,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
         else
         {
-            //Render();
+            g_pDXFamily->Render();
         }
     }
-    delete g_pDXFamily;
+
     return (int) msg.wParam;
 }

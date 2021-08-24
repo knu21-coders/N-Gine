@@ -15,22 +15,16 @@
     <Filter Include="Resource Files\Shaders">
       <UniqueIdentifier>{bd02bfce-4e3b-4ca7-85d5-610fa44a209d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{d06b7959-d064-42cd-b0aa-8e750e5e8dfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core\EngineSTL">
+      <UniqueIdentifier>{29e2a1b9-7fbd-4504-832d-2bbe116b1114}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DXFamily.h">
       <Filter>Source Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="framework.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine(Dx11).h">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Win32_.h">
       <Filter>Source Files\Graphics</Filter>
@@ -38,22 +32,37 @@
     <ClInclude Include="MeshManager.h">
       <Filter>Source Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="GraphicJobManager.h">
+    <ClInclude Include="Shader.h">
+      <Filter>Source Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine(Dx11).h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="NGineMap.h">
+      <Filter>Source Files\Core\EngineSTL</Filter>
+    </ClInclude>
+    <ClInclude Include="OBJMeshLoader.h">
       <Filter>Source Files\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="WinMain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="DXFamily.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="MeshManager.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="GraphicJobManager.cpp">
-      <Filter>Source Files\Graphics</Filter>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>Source Files\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,5 +77,16 @@
     <Image Include="Engine(Dx11).ico">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="VertexShader.hlsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="PixelShader.hlsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="SolidPixelShader.hlsl">
+      <Filter>Resource Files\Shaders</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>
