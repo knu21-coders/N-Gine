@@ -1,14 +1,16 @@
 #pragma once
 #include "framework.h"
+using namespace DirectX;
 
-
-struct Vertex{
-	
-	DirectX::XMFLOAT3 Pos;
-	DirectX::XMFLOAT3 Normal;
-	DirectX::XMFLOAT2 Tex;
-
+struct Vertex {
+		XMFLOAT3 Position;
+		XMFLOAT3 Normal;
 };
+bool operator==(const Vertex& a, const Vertex& b) {
+	bool IsNormalSame = (a.Normal.x == b.Normal.x) && (a.Normal.y == b.Normal.y) && (a.Normal.z == b.Normal.z);
+	bool IsPositionSame = (a.Position.x == b.Position.x) && (a.Position.y == b.Position.y) && (a.Position.z == b.Position.z);
+	return IsNormalSame && IsPositionSame;
+}
 struct MeshData {
 public:
 	MeshData() {
@@ -17,7 +19,7 @@ public:
 	~MeshData() {
 
 	}
-	std::vector<DirectX::XMFLOAT3> vertices;
+	std::vector<XMFLOAT3> vertices;
 	std::vector<UINT> indicies;
 };
 struct BundleMeshData : public MeshData{

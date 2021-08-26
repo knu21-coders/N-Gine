@@ -5,15 +5,8 @@
 using namespace DirectX;
 using namespace std;
 
-struct SimpleVertex {
-	XMFLOAT3 Position;
-	XMFLOAT3 Normal;
-};
-bool operator==(const SimpleVertex& a, const SimpleVertex& b) {
-	bool IsNormalSame = (a.Normal.x == b.Normal.x) && (a.Normal.y == b.Normal.y) && (a.Normal.z == b.Normal.z);
-	bool IsPositionSame = (a.Position.x == b.Position.x) && (a.Position.y == b.Position.y) && (a.Position.z == b.Position.z);
-	return IsNormalSame && IsPositionSame;
-}
+
+
 struct VertexNode {
 private:
 	VertexNode* m_pNext;
@@ -21,18 +14,18 @@ private:
 	unsigned int m_contained_points_count = 0;
 
 public:
-	SimpleVertex m_points[MAX_VALUE_PER_POOLS];
-	void Add(const SimpleVertex& _target) {
+	Vertex m_points[MAX_VALUE_PER_POOLS];
+	void Add(const Vertex& _target) {
 		m_points[m_contained_points_count++] = _target;
 		if (m_contained_points_count >= MAX_VALUE_PER_POOLS) m_is_pool_full = true;
 	}
-	bool IsContain(SimpleVertex& _target) {
+	bool IsContain(Vertex& _target) {
 		for (int index = 0; index < MAX_VALUE_PER_POOLS; index++) {
 			if (m_points[index] == _target) return true;
 		}
 		return false;
 	}
-	bool IsContain(SimpleVertex& _target, int* return_index) {
+	bool IsContain(Vertex& _target, int* return_index) {
 		for (int index = 0; index < MAX_VALUE_PER_POOLS; index++) {
 			if (m_points[index] == _target) {
 				*return_index = index;
@@ -56,7 +49,7 @@ class VertexSLL {
 	VertexNode* m_pStart = nullptr, * m_pEnd = nullptr;
 	unsigned int m_count = 0;
 public:
-	void Add(const SimpleVertex& _target) {
+	void Add(const Vertex& _target) {
 		if (m_pStart == nullptr) {
 
 			m_pStart = new VertexNode();
@@ -84,13 +77,13 @@ public:
 			}
 		}
 	}
-	SimpleVertex* operator[](const int& index) {
+	Vertex* operator[](const int& index) {
 		VertexNode* _iter = m_pStart;
 		for (int _iter_count = 0; _iter != nullptr && _iter_count < index / MAX_VALUE_PER_POOLS; _iter = _iter->GetNext(), _iter_count++);
 		if (_iter != nullptr) return &_iter->m_points[index % MAX_VALUE_PER_POOLS];
 		else return nullptr;
 	}
-	bool IsContain(SimpleVertex& _target) {
+	bool IsContain(Vertex& _target) {
 		VertexNode* _iter = m_pStart;
 		while (_iter != nullptr) {
 			if (_iter->IsContain(_target)) return true;
@@ -98,7 +91,7 @@ public:
 		}
 		return false;
 	}
-	bool IsContain(SimpleVertex& _target, int* return_index) {
+	bool IsContain(Vertex& _target, int* return_index) {
 		VertexNode* _iter = m_pStart;
 		int _iter_count = 0;
 		int tmp_return_index = 0;
