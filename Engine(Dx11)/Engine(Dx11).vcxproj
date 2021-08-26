@@ -141,10 +141,11 @@
   <ItemGroup>
     <ClInclude Include="DXFamily.h" />
     <ClInclude Include="Engine(Dx11).h" />
+    <ClInclude Include="NGineSLL.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MeshManager.h" />
-    <ClInclude Include="NGineMap.h" />
-    <ClInclude Include="OBJMeshLoader.h" />
+    <ClInclude Include="NGineHashMap.h" />
+    <ClInclude Include="NGineUtil.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="targetver.h" />

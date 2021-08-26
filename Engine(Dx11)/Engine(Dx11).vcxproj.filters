@@ -18,7 +18,7 @@
     <Filter Include="Source Files\Core">
       <UniqueIdentifier>{d06b7959-d064-42cd-b0aa-8e750e5e8dfb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Core\EngineSTL">
+    <Filter Include="Source Files\Core\NGineSTL">
       <UniqueIdentifier>{29e2a1b9-7fbd-4504-832d-2bbe116b1114}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -47,11 +47,14 @@
     <ClInclude Include="targetver.h">
       <Filter>Source Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="NGineMap.h">
-      <Filter>Source Files\Core\EngineSTL</Filter>
+    <ClInclude Include="NGineHashMap.h">
+      <Filter>Source Files\Core\NGineSTL</Filter>
     </ClInclude>
-    <ClInclude Include="OBJMeshLoader.h">
-      <Filter>Source Files\Graphics</Filter>
+    <ClInclude Include="NGineUtil.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="NGineSLL.h">
+      <Filter>Source Files\Core\NGineSTL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -231,6 +231,8 @@ inline HRESULT DXFamily::CreateVertexShader()
 
     // Set the input layout
     m_pImmediateContext->IASetInputLayout(m_pVertexLayout);
+
+    
     return S_OK;
 }
 
