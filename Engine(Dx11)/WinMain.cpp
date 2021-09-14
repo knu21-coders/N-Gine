@@ -3,6 +3,7 @@
 
 #include "framework.h"
 #include "Engine(Dx11).h"
+#include "NGineLog.h"
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
@@ -18,6 +19,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_ENGINEDX11, szWindowClass, MAX_LOADSTRING);
     
+    NGineLog _logger;
+    g_NGineLogger = &_logger;
     // OS 종속 초기화
     if (!InitWindow(hInstance, nCmdShow))
     {

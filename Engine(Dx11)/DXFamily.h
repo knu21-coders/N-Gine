@@ -43,7 +43,6 @@ private:
 	inline HRESULT CreateSwapChain();
 	inline HRESULT CreateDepthStencilView();
 	inline HRESULT InitViewport();
-	inline HRESULT CompileShader(const WCHAR* szFileName, const D3D_SHADER_MACRO* defines, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut);
 	inline HRESULT CreateVertexShader();
 	inline HRESULT CreatePixelShader();
 public:

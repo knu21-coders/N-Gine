@@ -21,6 +21,9 @@
     <Filter Include="Source Files\Core\NGineSTL">
       <UniqueIdentifier>{29e2a1b9-7fbd-4504-832d-2bbe116b1114}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Core\NGineUtil">
+      <UniqueIdentifier>{e3b1562d-5a56-466f-89a8-d09302ad09a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DXFamily.h">
@@ -29,7 +32,7 @@
     <ClInclude Include="Win32_.h">
       <Filter>Source Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="MeshManager.h">
+    <ClInclude Include="NGineMesh.h">
       <Filter>Source Files\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
@@ -50,18 +53,24 @@
     <ClInclude Include="NGineHashMap.h">
       <Filter>Source Files\Core\NGineSTL</Filter>
     </ClInclude>
-    <ClInclude Include="NGineUtil.h">
-      <Filter>Source Files\Core</Filter>
-    </ClInclude>
     <ClInclude Include="NGineSLL.h">
       <Filter>Source Files\Core\NGineSTL</Filter>
+    </ClInclude>
+    <ClInclude Include="NGineMeshLoader.h">
+      <Filter>Source Files\Core\NGineUtil</Filter>
+    </ClInclude>
+    <ClInclude Include="NGineString.h">
+      <Filter>Source Files\Core\NGineUtil</Filter>
+    </ClInclude>
+    <ClInclude Include="NGineLog.h">
+      <Filter>Source Files\Core\NGineUtil</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DXFamily.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="MeshManager.cpp">
+    <ClCompile Include="NGineMesh.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="WinMain.cpp">

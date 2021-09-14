@@ -141,11 +141,13 @@
   <ItemGroup>
     <ClInclude Include="DXFamily.h" />
     <ClInclude Include="Engine(Dx11).h" />
+    <ClInclude Include="NGineLog.h" />
     <ClInclude Include="NGineSLL.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="MeshManager.h" />
+    <ClInclude Include="NGineMesh.h" />
     <ClInclude Include="NGineHashMap.h" />
-    <ClInclude Include="NGineUtil.h" />
+    <ClInclude Include="NGineString.h" />
+    <ClInclude Include="NGineMeshLoader.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="targetver.h" />
@@ -153,7 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DXFamily.cpp" />
-    <ClCompile Include="MeshManager.cpp" />
+    <ClCompile Include="NGineMesh.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 #include "DXFamily.h"
 #include "Win32_.h"
-
+#include "Shader.h"
 /*
     Referenced Tutorial07.cpp
     - https://github.com/walbourn/directx-sdk-samples
@@ -162,35 +162,7 @@ inline HRESULT DXFamily::InitViewport()
     return hr;
 }
 
-inline HRESULT DXFamily::CompileShader(const WCHAR * szFileName, const D3D_SHADER_MACRO* defines, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob * *ppBlobOut)
-{
-        HRESULT hr = S_OK;
 
-        DWORD dwShaderFlags = D3DCOMPILE_ENABLE_STRICTNESS;
-#ifdef _DEBUG
-
-        dwShaderFlags |= D3DCOMPILE_DEBUG;
-
-        // Disable optimizations to further improve shader debugging
-        dwShaderFlags |= D3DCOMPILE_SKIP_OPTIMIZATION;
-#endif
-
-        ID3DBlob* pErrorBlob = nullptr;
-        hr = D3DCompileFromFile(szFileName, nullptr, nullptr, szEntryPoint, szShaderModel,
-            dwShaderFlags, 0, ppBlobOut, &pErrorBlob);
-        if (FAILED(hr))
-        {
-            if (pErrorBlob)
-            {
-                OutputDebugStringA(reinterpret_cast<const char*>(pErrorBlob->GetBufferPointer()));
-                pErrorBlob->Release();
-            }
-            return hr;
-        }
-        if (pErrorBlob) pErrorBlob->Release();
-
-        return S_OK;
-}
 
 inline HRESULT DXFamily::CreateVertexShader()
 {
@@ -271,6 +243,12 @@ HRESULT DXFamily::Init(const HWND& _hwnd)
 
 void DXFamily::Render()
 {
+    m_pImmediateContext->ClearRenderTargetView(m_pRenderTargetView, DirectX::Colors::DeepPink);
+    m_pImmediateContext->ClearDepthStencilView(m_pDepthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
+    m_pImmediateContext-> 
+
+
+
 }
 
 void DXFamily::End()
